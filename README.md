@@ -47,5 +47,6 @@ Intégration continue : Travis, SonarQube
 
 
 ## Tâches à réaliser pour le 21/06/19
-* Traitement des données : Mise en corrélation de la luminosité et de la température (ex : si le terrarium est en plein soleil, la température augmente. Si la température augmente, il y a des chances que l'hygrométrie baisse : on envoi un message de prévention)
+* Utilisation de l'API météo pour prévision : si terrarium au soleil et que la météo prévoit du beau temps, on prévient l'utilisateur que le terrarium risque d'être en "surchauffe"
+* Traitement des données : Mise en corrélation de la luminosité, de la température extérieure et de la température du terrarium (ex : si le terrarium est en plein soleil, la température augmente. Si la température augmente, il y a des chances que l'hygrométrie baisse : on envoi un message de prévention)
 
