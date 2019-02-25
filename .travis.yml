@@ -2,6 +2,11 @@ language: node_js
 node_js:
   - "10.9"
 
+
+addons:
+  sonarcloud:
+    organization: "syxooper19-github" # the key of the org you chose at step #3
+
 branches:
   only:
     - develop
@@ -12,6 +17,7 @@ before_script:
 
 script:
   - ng build --prod
+  - sonar-scanner
 
 after_success:
   - firebase deploy --token $FIREBASE_TOKEN
