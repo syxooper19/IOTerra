@@ -3,7 +3,8 @@
 
 ## Description
 IOTerra est un système de suivi pour Terrarium / Vivarium.<br/>
-IOTerra permet le controle régulier de la température, de l'hygrométrie et de la luminosité afin d'élever vos animaux dans les meilleures conditions.
+IOTerra permet le controle régulier de la température, de l'hygrométrie et de la luminosité afin d'élever vos animaux dans les meilleures conditions.<br/>
+Vous pouvez visualiser les paramètres de votre terrarium et être notifié par mail en cas de dépassement.
 
 
 ## Technologies utilisées
