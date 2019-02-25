@@ -1,4 +1,4 @@
 language: node_js
 rvm:
- - 2.2
+ - 10.9.0
  - ng serve
