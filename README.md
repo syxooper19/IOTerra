@@ -30,6 +30,7 @@ Intégration continue : Travis, SonarQube
 
 
 ## Tâches à réaliser pour le 25/03/19
+* Création du visuel : affichage des mesures (avec des fausses valeurs)
 * Création des graphiques	: Utilisation de ng-chart2. Graphiques responsives
 * Configuration Raspberry Pi : Config générale, branchements des capteurs
 * Développement Raspberry :	Récupération des données émis par chaque capteur
