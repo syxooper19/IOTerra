@@ -10,10 +10,10 @@ export class AppComponent {
 
   constructor(){
   }
-  
-  private _opened: boolean = false;
 
-  private _toggleSidebar() {
+  public _opened: boolean = false;
+
+  public _toggleSidebar() {
     this._opened = !this._opened;
   }
 
