@@ -1,13 +1,21 @@
 <h1>Choisissez un <br>Terrarium</h1>
 <ul class="list-group list-group-flush">
+
+    <!--tout-->
     <li class="list-group-item"><a class="nav-link" routerLink="/all">TOUT</a></li>
+    
+    <!--Liste des terras-->
     <li *ngFor='let item of listeTerra' 
         class="list-group-item" 
         (click)="onClickTerra(item)">
         
         <a class="nav-link" 
-           [routerLink]="['/Terra', item]"
-           [queryParams]="{infosPS : infosPS}">{{item}}
+           [routerLink]="['/Terra', item.id]"
+           [queryParams]="{terra : terraActuel}">{{item.nom}}
         </a>
     </li>
+
+    <!--Parametres-->
+    <li class="list-group-item"><a class="nav-link" routerLink="/parametres">Paramètres</a></li>
+
 </ul>

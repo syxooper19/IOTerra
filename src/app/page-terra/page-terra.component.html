@@ -1,0 +1,64 @@
+<div class="container">
+
+  <!--nom du terra-->
+  <div class="row">
+      <p>{{terraActuel}}</p>
+  </div>
+
+    
+    <!--Données actuelles-->
+  <div class="row">
+
+    <!--Température-->
+    <div class="col-sm">
+      <div class="card data temperature" placement="bottom" ngbTooltip="{{tooltip_temperature}}">
+        <div class="card-body">
+          <h5 class="card-title">Température</h5> <h2>28°</h2>
+          <h6 class="card-subtitle mb-2 text-muted">Non conforme</h6>
+        </div>
+      </div>
+    </div>
+
+    <!--Humidité-->
+    <div class="col-sm">
+        <div class="card data humidite" placement="bottom" ngbTooltip="{{tooltip_humidite}}">
+            <div class="card-body">
+              <h5 class="card-title">Humidité</h5> <h2>50 %</h2>
+              <h6 class="card-subtitle mb-2 text-muted">Conforme</h6>
+            </div>
+        </div>
+    </div>
+
+    <!--Luminosité-->
+    <div class="col-sm">
+        <div class="card data luminosite" placement="bottom" ngbTooltip="{{tooltip_luminosite}}">
+            <div class="card-body">
+              <h5 class="card-title">Luminosité</h5> <h2>Très Fort</h2>
+              <h6 class="card-subtitle mb-2 text-muted">Risque : Surchauffe</h6>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Météo-->
+    <div class="col-sm">
+      <div class="card data meteo" placement="bottom" ngbTooltip="{{tooltip_meteo}}">
+          <div class="card-body">
+            <h5 class="card-title">Météo actuelle</h5> <h2>Ensoleillé</h2>
+            <h6 class="card-subtitle mb-2 text-muted">Risque : surchauffe</h6>
+          </div>
+      </div>
+    </div>
+  </div>
+
+
+  <app-line-chart [idTerra]="idTerra"></app-line-chart>
+
+
+</div>
+  
+  
+  
+
+
+
