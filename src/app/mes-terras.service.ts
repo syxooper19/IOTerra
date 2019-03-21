@@ -12,6 +12,14 @@ export class MesTerrasService {
   terraActuel     :   any;
 
 
+
+  //Tooltips
+  public    tooltip_humidite      : any       = "Le taux d'humidité est conforme à vos attentes. Toutefois, il risque d'augmenter à cause de la forte luminosité";
+  public    tooltip_temperature   : any       = "La température n'est pas conforme à vos attentes";
+  public    tooltip_meteo         : any       = "Attention, votre terrarium est exposé au soleil. Ceci peux causer une hausse de la température ainsi qu'une baisse de l'hygrométrie";
+  public    tooltip_luminosite    : any       = "La luminosité est forte. Pensez à surveiller la température et l'hygrométrie";
+
+    
   constructor() { 
 
     this.listeTerra = [

@@ -13,9 +13,18 @@ export class PageTerraComponent implements OnInit{
   idTerra       : any;
   terraActuel   : any   = this.serviceTerra.terraActuel;
 
+  //tooltips
+  tooltip_temperature   : any;
+  tooltip_humidite      : any;
+  tooltip_luminosite    : any;
+  tooltip_meteo         : any;
+
+
   constructor(private serviceTerra : MesTerrasService, private route : ActivatedRoute) {
-    
-    
+    this.tooltip_humidite   = serviceTerra.tooltip_humidite;
+    this.tooltip_luminosite = serviceTerra.tooltip_luminosite;
+    this.tooltip_meteo      = serviceTerra.tooltip_meteo;
+    this.tooltip_temperature= serviceTerra.tooltip_temperature;
   }
 
   ngOnInit() {
