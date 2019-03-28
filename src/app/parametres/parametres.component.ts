@@ -1,6 +1,5 @@
 import { MesTerrasService } from './../mes-terras.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-parametres',
@@ -11,9 +10,6 @@ export class ParametresComponent implements OnInit {
 
   //Liste terrarium
   listeTerra      :   Array<any>    =   new Array();
-
-  
-  
 
 
   constructor(private serviceTerra : MesTerrasService) { 

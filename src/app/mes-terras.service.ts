@@ -23,8 +23,8 @@ export class MesTerrasService {
   constructor() { 
 
     this.listeTerra = [
-      {id : 1, nom : 'Pantherophis Guttatus', soleil : 'oui', temperature : '28', hygrometrie : '50', alertes : 'oui'}, 
-      {id : 2, nom : 'Python',                soleil : 'non', temperature : '32', hygrometrie : '40', alertes : 'non'}, 
+      {id : 1, nom : 'Pantherophis Guttatus', soleil : 'oui', temperature_souhaitee : '28', hygrometrie_souhaitee : '50%', alertes : 'oui', temperature : '28', hygrometrie : '50%', luminosite : '700 Lux'}, 
+      {id : 2, nom : 'Python',                soleil : 'non', temperature_souhaitee : '30', hygrometrie_souhaitee : '50%', alertes : 'non', temperature : '30', hygrometrie : '40%', luminosite : '600 Lux'}, 
     ];
   }
 

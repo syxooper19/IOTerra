@@ -1,25 +1,44 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { SocialLoginModule, AuthServiceConfig, AuthService, SocialUser } from "angularx-social-login";
+import { GoogleLoginProvider, FacebookLoginProvider, LinkedInLoginProvider} from "angularx-social-login";
+import { SocialLoginService } from 'src/services/social-login.service';
+
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+
+export class AppComponent implements OnInit{
+
+  private user: SocialUser;
+  private loggedIn: boolean;
 
 
-  //Tooltips
-  public    tooltip_humidite      : any       = "Le taux d'humidité est conforme à vos attentes. Toutefois, il risque d'augmenter à cause de la forte luminosité";
-  public    tooltip_temperature   : any       = "La température n'est pas conforme à vos attentes";
-  public    tooltip_meteo         : any       = "Attention, votre terrarium est exposé au soleil. Ceci peux causer une hausse de la température ainsi qu'une baisse de l'hygrométrie";
-  public    tooltip_luminosite    : any       = "La luminosité est forte. Pensez à surveiller la température et l'hygrométrie";
+  ngOnInit(){
 
+    this.loggedIn = false;
+    
+    this.authService.authState.subscribe(
+      (user) => {
+        this.user = user;
+        this.loggedIn = (user != null);
+        console.log(this.user);
+        console.log(this.loggedIn);
+      });
 
+  }
 
-  constructor(){
+  constructor(private authService: AuthService, public http : HttpClient, private socialAuthService: SocialLoginService){
   }
 
 
+  deconnexion(){
+    this.authService.signOut();
+  }
 
   //ouvrir ou fermer la Sidebar
   public _opened: boolean = false;

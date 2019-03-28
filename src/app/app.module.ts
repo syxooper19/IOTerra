@@ -12,6 +12,30 @@ import { ParametresComponent } from './parametres/parametres.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ResumeTerrasComponent } from './resume-terras/resume-terras.component';
 import { PageTerraComponent } from './page-terra/page-terra.component';
+import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
+import { GoogleLoginProvider, FacebookLoginProvider, LinkedInLoginProvider} from "angularx-social-login";
+import { HttpClientModule } from '@angular/common/http';
+import { SocialLoginComponent } from './social-login/social-login.component';
+
+
+let config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider("Google-OAuth-Client-Id")
+  },
+  {
+    id: FacebookLoginProvider.PROVIDER_ID,
+    provider: new FacebookLoginProvider("2140536795993818")
+  },
+  {
+    id: LinkedInLoginProvider.PROVIDER_ID,
+    provider: new LinkedInLoginProvider("LinkedIn-client-Id", false, 'en_US')
+  }
+]);
+
+export function provideConfig() {
+  return config;
+}
 
 
 @NgModule({
@@ -21,7 +45,8 @@ import { PageTerraComponent } from './page-terra/page-terra.component';
     LineChartComponent,
     ParametresComponent,
     ResumeTerrasComponent,
-    PageTerraComponent
+    PageTerraComponent,
+    SocialLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -30,8 +55,13 @@ import { PageTerraComponent } from './page-terra/page-terra.component';
     SidebarModule,
     ChartsModule,
     NgbModule,
+    SocialLoginModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [{
+    provide: AuthServiceConfig,
+      useFactory: provideConfig
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
