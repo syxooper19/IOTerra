@@ -4,13 +4,15 @@
     <!--tout-->
     <li class="list-group-item"><a class="nav-link" routerLink="/all">Accueil</a></li>
     
+
+
     <!--Liste des terras-->
-    <li *ngFor='let item of listeTerra' 
+    <li *ngFor='let item of terraFirebase | async' 
         class="list-group-item" 
         (click)="onClickTerra(item)">
         
         <a class="nav-link" 
-           [routerLink]="['/Terra', item.id]">{{item.nom}}
+           [routerLink]="['/Terra', item.id]">{{item.nomTerra}}
         </a>
     </li>
 

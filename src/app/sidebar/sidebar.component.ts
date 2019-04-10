@@ -11,12 +11,16 @@ export class SidebarComponent implements OnInit {
 
   listeTerra    : any;
   terraActuel   : any;
+  public collectionTerraFireBase   : any;
+  public terraFirebase             : any;
 
   constructor(private serviceTerra : MesTerrasService ) {
     this.listeTerra   =   this.serviceTerra.listeTerra;
   }
 
   ngOnInit() {
+      this.collectionTerraFireBase  = this.serviceTerra.TerrariumsCollection;
+      this.terraFirebase            = this.serviceTerra.Terrarium;
   }
 
 

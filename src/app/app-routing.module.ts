@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ResumeTerrasComponent } from './resume-terras/resume-terras.component';
 import { PageTerraComponent } from './page-terra/page-terra.component';
-import { IsSignedInService } from './is-signed-in.service';
 import { SocialLoginService } from 'src/services/social-login.service';
 
 const routes: Routes = [

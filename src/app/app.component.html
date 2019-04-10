@@ -24,6 +24,12 @@
           </div>
       </nav>
 
+
+      <div *ngFor="let t of terraFirebase | async">
+        <p>{{ t | json }}</p>
+      </div>
+
+
       <!-- <div class="fb-login-button" data-size="large" data-button-type="continue_with" data-auto-logout-link="true" data-use-continue-as="true" onlogin="checkLoginState();"></div> -->
         <router-outlet></router-outlet>
 

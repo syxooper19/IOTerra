@@ -18,6 +18,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { SocialLoginComponent } from './social-login/social-login.component';
 
 
+import { environment } from '../environments/environment';
+import { AngularFireModule } from 'angularfire2';
+export const firebaseConfig = environment.firebaseConfig;
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+
 let config = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
@@ -56,7 +61,9 @@ export function provideConfig() {
     ChartsModule,
     NgbModule,
     SocialLoginModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFirestoreModule
   ],
   providers: [{
     provide: AuthServiceConfig,
