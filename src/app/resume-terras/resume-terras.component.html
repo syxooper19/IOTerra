@@ -1,0 +1,27 @@
+<div class="container">
+
+  <p class="titre">Mes Terrariums</p>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Terrarium</th>
+        <th scope="col">Température</th>
+        <th scope="col">Hygrométrie</th>
+        <th scope="col">Luminosité</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let terra of listeTerra; index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ terra.nom }}</td>
+        <td>{{ terra.temperature }}</td>
+        <td>{{ terra.hygrometrie }}</td>
+        <td>{{ terra.luminosite }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

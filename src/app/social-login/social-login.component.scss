@@ -1,0 +1,16 @@
+.pageLogin{
+    background-image: url(../../assets/img/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover;
+    min-height: 100vh;
+    position: relative;
+
+}
+
+.content{
+    position: absolute;
+    top: 50%; /* poussé de la moitié de hauteur du référent */
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

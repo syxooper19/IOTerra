@@ -1,0 +1,22 @@
+<!-- Container for sidebar(s) + page content -->
+<ng-sidebar-container style="height: 100vh;">
+
+  <!-- A sidebar -->
+  <ng-sidebar [(opened)]="_opened" position="left" [mode]="'push'">
+    <app-sidebar></app-sidebar>
+  </ng-sidebar>
+
+  <!-- Page content -->
+  <div ng-sidebar-content>
+      <nav class="navbar navbar-dark bg-dark">
+          <!-- Navbar content -->
+          <button type="button" class="btn btn-secondary" (click)="_toggleSidebar()" >Menu</button>
+
+        </nav>
+
+        <router-outlet></router-outlet>
+
+
+  </div>
+
+</ng-sidebar-container>

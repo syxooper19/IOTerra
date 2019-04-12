@@ -1,0 +1,27 @@
+.card{
+
+
+    &.data{
+        margin-top: 1em;
+        margin-left: 1em;
+        margin-right: 1em;
+        margin-bottom: 1em;
+
+        &.temperature{
+            background-color: #F6CEA7;
+        }
+
+        &.humidite{
+            background-color: #A6B6CA;
+        }
+
+        &.luminosite{
+            background-color: #AFDFB7;
+        }
+
+        &.meteo{
+            background-color: #F4FE95
+        }
+    }
+    
+}

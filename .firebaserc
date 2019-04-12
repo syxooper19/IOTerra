@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "IOTerra": "ioterra",
+    "default": "ioterra"
+  }
+}
