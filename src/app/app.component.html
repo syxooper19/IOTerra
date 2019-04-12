@@ -1,3 +1,5 @@
+<!-- <title>{{title}}</title>
+<h1>{{title}}</h1> -->
 <!-- Container for sidebar(s) + page content -->
 <ng-sidebar-container style="height: 100vh;" *ngIf="this.loggedIn">
 
@@ -13,6 +15,7 @@
 
           
           <button type="button" class="btn btn-secondary" (click)="_toggleSidebar()" >Menu</button>
+
           <div *ngIf="this.user != undefined">
 
             <button type="button" class="btn btn-secondary" (click)="deconnexion()" >Deconnexion</button>

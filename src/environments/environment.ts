@@ -5,7 +5,6 @@
 export const environment = {
   production: false,
 
-
    firebaseConfig: {
     apiKey: "AIzaSyDyD0Nj43aedlA2o6D_uOJoDf8JhvCKzoU",
     authDomain: "ioterra.firebaseapp.com",

@@ -21,7 +21,8 @@ import { SocialLoginComponent } from './social-login/social-login.component';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 export const firebaseConfig = environment.firebaseConfig;
-import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFirestoreModule, AngularFirestore } from 'angularfire2/firestore';
+
 
 let config = new AuthServiceConfig([
   {
@@ -44,6 +45,7 @@ export function provideConfig() {
 
 
 @NgModule({
+
   declarations: [
     AppComponent,
     SidebarComponent,
@@ -57,18 +59,19 @@ export function provideConfig() {
     BrowserModule,
     AppRoutingModule,
     GoogleChartsModule,
-    SidebarModule,
+    SidebarModule.forRoot(),
     ChartsModule,
     NgbModule,
     SocialLoginModule,
     HttpClientModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    SocialLoginModule
   ],
-  providers: [{
-    provide: AuthServiceConfig,
-      useFactory: provideConfig
-  }],
+  providers: [
+    { provide: AuthServiceConfig, useFactory: provideConfig },
+  ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

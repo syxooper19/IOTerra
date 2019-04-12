@@ -3,6 +3,7 @@ import { FacebookLoginProvider, GoogleLoginProvider, LinkedInLoginProvider } fro
 import { Component, OnInit, Injectable } from '@angular/core';
 import { SocialUser } from "angularx-social-login";
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { resolve } from 'dns';
  
 @Injectable({
   providedIn: 'root'

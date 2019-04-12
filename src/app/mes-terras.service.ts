@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} from 'angularfire2/firestore';
 import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 
 
@@ -35,7 +35,7 @@ export class MesTerrasService {
   public    tooltip_meteo         : any       = "Attention, votre terrarium est exposé au soleil. Ceci peux causer une hausse de la température ainsi qu'une baisse de l'hygrométrie";
   public    tooltip_luminosite    : any       = "La luminosité est forte. Pensez à surveiller la température et l'hygrométrie";
 
-  
+
   TerrariumsCollection  : AngularFirestoreCollection<Terrarium>;
   Terrarium             : Observable<Terrarium[]>
 
@@ -49,7 +49,10 @@ export class MesTerrasService {
 
 
     this.TerrariumsCollection   = this.afs.collection('Terrarium');
-    this.Terrarium              = this.TerrariumsCollection.valueChanges();
+    //this.Terrarium              = this.TerrariumsCollection.valueChanges();
+
+
+
 
   }
 
