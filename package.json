@@ -62,8 +62,10 @@
     "mocha": "^6.1.2",
     "protractor": "~5.4.0",
     "sinon": "^7.3.1",
+    "sonar-scanner": "^3.1.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
+    "tslint-sonarts": "^1.9.0",
     "typescript": "~3.1.6"
   }
 }
