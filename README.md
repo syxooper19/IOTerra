@@ -38,8 +38,8 @@ Intégration continue : Travis, SonarQube
 
 
 ## Tâches à réaliser pour le 23/04/19
-* Création d'une API : API CRUD de requête pour la BDD (NodeJS)
-* Développement Raspberry :	Envoi des données en BDD (grâce à l'API)
+* Utilisation de l'API Firebase : Premiers tests de visualisation de données
+* Développement Raspberry :	Envoi des données en BDD (grâce à l'API Firebase)
 * Authentification Utilisateur : Authentification de l'utilisateur pour accéder aux mesures
 
 
