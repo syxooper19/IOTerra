@@ -42,6 +42,8 @@ Intégration continue : Travis, SonarQube
 * Développement Raspberry :	Envoi des données en BDD (grâce à l'API Firebase)
 * Authentification Utilisateur : Authentification de l'utilisateur pour accéder aux mesures
 
+--> Vidéo Réalisation : https://youtu.be/DrtVVOzT8fs
+
 
 ## Tâches à réaliser pour le 23/05/19
 * Utilisation de l'API dans l'interface web : Visualisation des données grâce aux graphiques
