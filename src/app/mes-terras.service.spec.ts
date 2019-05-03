@@ -2,13 +2,23 @@ import { TestBed } from '@angular/core/testing';
 
 import { MesTerrasService } from './mes-terras.service';
 import { BehaviorSubject } from 'rxjs';
-import { AngularFirestore } from 'angularfire2/firestore';
+import { AngularFirestore, AngularFirestoreModule, AngularFirestoreCollection } from 'angularfire2/firestore';
+import { AngularFireModule } from 'angularfire2';
+
+import { environment } from '../environments/environment';
+export const firebaseConfig = environment.firebaseConfig;
+
+import { Observable } from 'rxjs';
 
 describe('MesTerrasService', () => {
   beforeEach(() => TestBed.configureTestingModule({
     providers: [
       { provide: AngularFirestore, useValue: FirestoreStub },
     ],
+    imports: [
+      AngularFireModule.initializeApp(firebaseConfig),
+      AngularFirestoreModule,
+    ]
   }));
 
   it('should be created', () => {

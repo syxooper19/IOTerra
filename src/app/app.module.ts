@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { SidebarModule } from 'ng-sidebar';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
+import { Chart } from 'chart.js';
+
 import { LineChartComponent } from './line-chart/line-chart.component';
 import { ParametresComponent } from './parametres/parametres.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -61,12 +63,14 @@ export function provideConfig() {
     GoogleChartsModule,
     SidebarModule.forRoot(),
     ChartsModule,
+    //Chart,
     NgbModule,
     SocialLoginModule,
     HttpClientModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
-    SocialLoginModule
+    SocialLoginModule,
+
   ],
   providers: [
     { provide: AuthServiceConfig, useFactory: provideConfig },

@@ -7,7 +7,20 @@ import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
   templateUrl: './page-terra.component.html',
   styleUrls: ['./page-terra.component.scss']
 })
-export class PageTerraComponent implements OnInit{
+export class PageTerraComponent implements OnInit, OnChanges{
+  
+  
+  ngOnChanges(changes: SimpleChanges): void {
+
+      //if (changes['nomPS'] || changes['nomAT']) {
+      if (changes['nomAT']) {
+        //console.log(this.nomAT);
+      }
+  
+      if (changes['nomPS']){
+        //console.log('change PS');
+      }
+  }
 
   //nom du terra
   idTerra       : any;
@@ -18,6 +31,14 @@ export class PageTerraComponent implements OnInit{
   tooltip_humidite      : any;
   tooltip_luminosite    : any;
   tooltip_meteo         : any;
+
+  //mesures
+  mesuresTerraActuel    : any;
+  temperatureActuelle   : any;
+  hygrometrieActuelle   : any;
+  
+  collectionTerraFireBase : any;
+  terraFirebase           : any;
 
 
   constructor(private serviceTerra : MesTerrasService, private route : ActivatedRoute) {
@@ -31,11 +52,24 @@ export class PageTerraComponent implements OnInit{
 
     this.route.queryParams.subscribe( params => {
       this.idTerra    =   this.route.snapshot.params['id_terra'];
-      console.log("pt :" + this.idTerra);
+      console.log(this.idTerra);
     });
 
-    this.terraActuel  =   this.serviceTerra.terraActuel;
+    //this.terraActuel  =   this.serviceTerra.terraActuel;
     //console.log(this.terraActuel);
+
+
+    this.mesuresTerraActuel  = this.serviceTerra.getTerra(this.idTerra).then(
+      (res : any) => {
+        this.temperatureActuelle  = res.temperature;
+        this.hygrometrieActuelle  = res.hygrometrie;
+      }
+    );    //console.log(this.terraActuel);
+
+    this.collectionTerraFireBase  = this.serviceTerra.TerrariumsCollection;
+    this.terraFirebase            = this.serviceTerra.Terrarium;
+
+      
   }
 
 

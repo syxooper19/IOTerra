@@ -32,14 +32,17 @@ export class AppComponent implements OnInit{
     this.user = this.socialAuthService.user;
     this.loggedIn = (this.user != null);
 
-    this.authService.authState.subscribe(
-      (user) => {
-        this.user     = user;
-        this.loggedIn = (user != null);
-        console.log(this.user);
-        console.log(this.loggedIn);
-      });
+    if (this.authService.authState != undefined){
 
+      this.authService.authState.subscribe(
+        (user) => {
+          this.user     = user;
+          this.loggedIn = (user != null);
+          console.log(this.user);
+          console.log(this.loggedIn);
+        });
+        
+    }
 
       this.collectionTerraFireBase  = this.mesTerras.TerrariumsCollection;
       this.terraFirebase            = this.mesTerras.Terrarium;
@@ -58,4 +61,10 @@ export class AppComponent implements OnInit{
   }
 
 
+  //ouvrir ou fermer la Sidebar
+  public _opened: boolean = false;
+
+  public _toggleSidebar() {
+    this._opened = !this._opened;
+  }
 }

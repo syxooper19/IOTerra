@@ -2,7 +2,9 @@
 
   <!--nom du terra-->
   <div class="row">
-      <p>{{terraActuel}}</p>
+    <!-- <div *ngFor="let t of terraActuel | async">
+        <p>{{ t | json }}</p>
+      </div>   -->
   </div>
 
     
@@ -13,7 +15,7 @@
     <div class="col-sm">
       <div class="card data temperature" placement="bottom" ngbTooltip="{{tooltip_temperature}}">
         <div class="card-body">
-          <h5 class="card-title">Température</h5> <h2>28°</h2>
+          <h5 class="card-title">Température</h5> <h2> {{ temperatureActuelle }} °</h2>
           <h6 class="card-subtitle mb-2 text-muted">Non conforme</h6>
         </div>
       </div>
@@ -23,7 +25,7 @@
     <div class="col-sm">
         <div class="card data humidite" placement="bottom" ngbTooltip="{{tooltip_humidite}}">
             <div class="card-body">
-              <h5 class="card-title">Humidité</h5> <h2>50 %</h2>
+              <h5 class="card-title">Humidité</h5> <h2>{{ hygrometrieActuelle}} %</h2>
               <h6 class="card-subtitle mb-2 text-muted">Conforme</h6>
             </div>
         </div>

@@ -1,7 +1,7 @@
 organization=syxooper19-github
 projectKey=syxooper19_IOTerra
 serverUrl=https://sonarcloud.io
-serverVersion=7.7.0.22107
+serverVersion=7.8.0.23906
 dashboardUrl=https://sonarcloud.io/dashboard?id=syxooper19_IOTerra
-ceTaskId=AWklDCikI_9GnTUFRbZ3
-ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AWklDCikI_9GnTUFRbZ3
+ceTaskId=AWpOXYFcoQGPGjAgujGr
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AWpOXYFcoQGPGjAgujGr

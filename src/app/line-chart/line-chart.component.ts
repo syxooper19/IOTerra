@@ -1,4 +1,6 @@
 import { Component, OnInit, OnChanges, SimpleChanges, Input } from '@angular/core';
+import { ChartDataSets, ChartOptions } from 'chart.js';
+
 
 @Component({
   selector: 'app-line-chart',
@@ -21,14 +23,14 @@ export class LineChartComponent implements OnInit, OnChanges {
 
 
   ngOnChanges(changes: SimpleChanges){
-    if (changes['idTerra']) {
-      //console.log(this.idTerra);
-    }
+    // if (changes['idTerra']) {
+    //   //console.log(this.idTerra);
+    // }
   }
 
 
   // lineChart
-  public lineChartData:Array<any> = [
+  public lineChartData: ChartDataSets[] = [
     {data: [28, 27, 26, 26, 25, 24, 22], label: 'Temperature'},
     {data: [50, 52, 55, 55, 55, 50, 48], label: 'Hygrométrie'},
     //{data: [700, 600, 500, 400, 300, 200, 100], label: 'Luminosité'}
@@ -70,11 +72,9 @@ export class LineChartComponent implements OnInit, OnChanges {
  
   // events
   public chartClicked(e:any):void {
-    console.log(e);
   }
  
   public chartHovered(e:any):void {
-    console.log(e);
   }
 }
 
