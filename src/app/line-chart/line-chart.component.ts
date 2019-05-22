@@ -39,12 +39,20 @@ export class LineChartComponent implements OnInit, OnChanges {
         //   tabTemp.push(res[mesure].temperature);
         //   tabHygro.push(res[mesure].hygrometrie)
         // }
+
+        let maDate ;
+        let maDateString ;
+
         for (let mesure of res){
-          valeurDate  = mesure.date.seconds;
+          valeurDate    = mesure.date.seconds;
+          maDateString  = (this.toDateTime(valeurDate).toDateString() + " - "+ this.toDateTime(valeurDate).toTimeString()).substring(4, 23) ;
+
           tabDate.push(valeurDate.toString());
           tabTemp.push(mesure.temperature);
           tabHygro.push(mesure.hygrometrie);
-          this.lineChartLabels.push(this.toDateTime(valeurDate.toString()));
+
+          //this.lineChartLabels.push(this.toDateTime(valeurDate.toString()));
+          this.lineChartLabels.push(maDateString);
         }
 
         this.tabDate  = tabDate;
@@ -66,7 +74,7 @@ export class LineChartComponent implements OnInit, OnChanges {
   }
 
   toDateTime(secs) {
-    var t = new Date(1970, 0, 1); // Epoch
+    let t = new Date(1970, 0, 1); // Epoch
     t.setSeconds(secs);
     return t;
   }
