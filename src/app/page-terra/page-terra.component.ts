@@ -59,13 +59,13 @@ export class PageTerraComponent implements OnInit, OnChanges{
     //console.log(this.terraActuel);
 
 
-    this.mesuresTerraActuel  = this.serviceTerra.getTerra(this.idTerra).then(
+    this.mesuresTerraActuel  = this.serviceTerra.getDerniereMesureTerra(this.idTerra).then(
       (res : any) => {
         this.temperatureActuelle  = res.temperature;
         this.hygrometrieActuelle  = res.hygrometrie;
       }
-    );    //console.log(this.terraActuel);
-
+    );    
+    
     this.collectionTerraFireBase  = this.serviceTerra.TerrariumsCollection;
     this.terraFirebase            = this.serviceTerra.Terrarium;
 

@@ -59,16 +59,7 @@ export class MesTerrasService {
   }
 
 
-  getTerra(nomTerra : any){
-    // let TerrariumsCollection   = this.afs.collection('Terrarium').doc('KreKAs5CarjyWiko68bv').ref.get().then(function(doc) {
-    //   if (doc.exists) {
-    //     console.log("Document data:", doc.data());
-    //   } else {
-    //     console.log("No such document!");
-    //   }
-    // }).catch(function(error) {
-    //   console.log("Error getting document:", error);
-    // });;
+  getDerniereMesureTerra(nomTerra : any){
 
     let promise               = new Promise(resolve => 
       {
@@ -79,22 +70,12 @@ export class MesTerrasService {
           for (let mesure of res){
             tmp.push(mesure.date.seconds);
           }
-          //let value = Math.max.apply(Math, res.map(function(o) { return o.date.seconds; }));
 
           let index = tmp.indexOf(Math.max(...tmp));
           resolve(res[index]);
         });
     });
 
-
-    //let Terrarium              = this.TerrariumsCollection.valueChanges();
-    //let Terrarium               = this.afs.collection('Terrarium/KreKAs5CarjyWiko68bv/Mesures', ref => ref.where('nomTerra', '==', 'Python'));
-    // let Terrarium               = this.afs.collection('Terrarium/KreKAs5CarjyWiko68bv/Mesures').valueChanges().pipe(take(1))
-    // .subscribe(v => {
-    //   derniereMesure = v[0];
-    //   console.log(derniereMesure);
-    // });
-    //let Terrarium = TerrariumsCollection.get();
     return promise;
   }
 
