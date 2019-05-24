@@ -49,6 +49,8 @@ Intégration continue : Travis, SonarQube
 * Utilisation de l'API dans l'interface web : Visualisation des données grâce aux graphiques
 * Création des alertes : l'utilisateur est notifé dans les cas non conformes (l'utilisateur paramètre ses alertes)
 
+--> Vidéo Réalisation : https://youtu.be/WpKu96x__s8
+
 
 ## Tâches à réaliser pour le 21/06/19
 * Utilisation de l'API météo pour prévision : si terrarium au soleil et que la météo prévoit du beau temps, on prévient l'utilisateur que le terrarium risque d'être en "surchauffe"
