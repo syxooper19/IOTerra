@@ -24,6 +24,9 @@ import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 export const firebaseConfig = environment.firebaseConfig;
 import { AngularFirestoreModule, AngularFirestore } from 'angularfire2/firestore';
+import { ToggleButtonComponent } from './toggle-button.component';
+
+import { FormsModule } from '@angular/forms';
 
 
 let config = new AuthServiceConfig([
@@ -55,7 +58,8 @@ export function provideConfig() {
     ParametresComponent,
     ResumeTerrasComponent,
     PageTerraComponent,
-    SocialLoginComponent
+    SocialLoginComponent,
+    ToggleButtonComponent
   ],
   imports: [
     BrowserModule,
@@ -70,6 +74,7 @@ export function provideConfig() {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
     SocialLoginModule,
+    FormsModule
 
   ],
   providers: [
