@@ -17,6 +17,7 @@ export class LineChartComponent implements OnInit, OnChanges {
   tabDate     : Array<any>  = new Array<any>();
   tabTemp     : Array<any>  = new Array<any>();
   tabHygro    : Array<any>  = new Array<any>();
+  tabMeteo    : Array<any>  = new Array<any>();
 
   constructor(private afs : AngularFirestore) { 
   }
@@ -30,6 +31,7 @@ export class LineChartComponent implements OnInit, OnChanges {
         let tabDate     : Array<any>  = new Array<any>();
         let tabTemp     : Array<any>  = new Array<any>();
         let tabHygro    : Array<any>  = new Array<any>();
+        let tabMeteo    : Array<any>  = new Array<any>();
 
         let valeurDate  : any;
 
@@ -44,12 +46,14 @@ export class LineChartComponent implements OnInit, OnChanges {
         let maDateString ;
 
         for (let mesure of res){
+          console.log(mesure);
           valeurDate    = mesure.date.seconds;
           maDateString  = (this.toDateTime(valeurDate).toDateString() + " - "+ this.toDateTime(valeurDate).toTimeString()).substring(4, 23) ;
 
           tabDate.push(valeurDate.toString());
           tabTemp.push(mesure.temperature);
           tabHygro.push(mesure.hygrometrie);
+          tabMeteo.push(mesure.temperatureExterieur);
 
           //this.lineChartLabels.push(this.toDateTime(valeurDate.toString()));
           this.lineChartLabels.push(maDateString);
@@ -58,6 +62,7 @@ export class LineChartComponent implements OnInit, OnChanges {
         this.tabDate  = tabDate;
         this.tabHygro = tabHygro;
         this.tabTemp  = tabTemp;
+        this.tabMeteo = tabMeteo;
 
       }
     ).then(
@@ -66,6 +71,7 @@ export class LineChartComponent implements OnInit, OnChanges {
         this.lineChartData = [
           {data: this.tabTemp, label: 'Temperature'},
           {data: this.tabHygro, label: 'Hygrométrie'},
+          {data: this.tabMeteo, label: 'Temp Extérieure'}
         ]; 
         
       }
@@ -82,7 +88,7 @@ export class LineChartComponent implements OnInit, OnChanges {
   constructionTableauxMesures(){
     let promise               = new Promise(resolve => 
       {
-        this.afs.collection('Terrarium/KreKAs5CarjyWiko68bv/Mesures').valueChanges().pipe(take(1)).toPromise()
+        this.afs.collection('Terrarium/KreKAs5CarjyWiko68bv/Mesures', ref => ref.orderBy('date').limit(20)).valueChanges().pipe(take(1)).toPromise()
         .then( (res : Array<any>) => {
           //console.log(res);
           resolve(res);
@@ -104,6 +110,7 @@ export class LineChartComponent implements OnInit, OnChanges {
   public lineChartData: ChartDataSets[] = [
     {data: [28, 27, 26, 26, 25, 24, 22], label: 'Temperature'},
     {data: [50, 52, 55, 55, 55, 50, 48], label: 'Hygrométrie'},
+    {data: [28, 27, 26, 26, 25, 24, 22], label: 'Temp Exterieure'},
   ];
 
   //public lineChartLabels : Array<any>;

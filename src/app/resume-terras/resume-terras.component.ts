@@ -9,15 +9,30 @@ import { MesTerrasService } from '../mes-terras.service';
 export class ResumeTerrasComponent implements OnInit {
 
   //Liste terrarium
-  listeTerra      :   Array<any>    =   new Array();
-
-  
+  listeTerra        : any;
+  listeMesures      : Array<any> = new Array();
 
   constructor(private serviceTerra : MesTerrasService) { 
-    this.listeTerra   =   this.serviceTerra.listeTerra;
+
   }
 
   ngOnInit() {
+
+    console.log(this.listeMesures);
+
+    this.serviceTerra.constructionListeTerra().then(
+      (res) => {
+        this.listeTerra   =   res;
+      }
+    )
+
+    this.serviceTerra.getDerniereMesureTerra("Python").then(
+      (res) => {
+        this.listeMesures.push(Object.assign({nomTerra: "Python" }, res));
+        this.listeMesures.push(Object.assign({nomTerra: "Pantherophis Guttatus" }, res));
+        console.log(this.listeTerra);
+      }
+    )
   }
 
 }

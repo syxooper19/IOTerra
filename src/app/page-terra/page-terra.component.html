@@ -35,8 +35,8 @@
     <div class="col-sm">
         <div class="card data luminosite" placement="bottom" ngbTooltip="{{tooltip_luminosite}}">
             <div class="card-body">
-              <h5 class="card-title">Luminosité</h5> <h2>Très Fort</h2>
-              <h6 class="card-subtitle mb-2 text-muted">Risque : Surchauffe</h6>
+              <h5 class="card-title">Luminosité</h5> <h2>{{ luminositeActuelle }} Lux</h2>
+              <h6 class="card-subtitle mb-2 text-muted">Risque : {{ risqueLuminosite }}</h6>
             </div>
         </div>
     </div>
@@ -46,8 +46,8 @@
     <div class="col-sm">
       <div class="card data meteo" placement="bottom" ngbTooltip="{{tooltip_meteo}}">
           <div class="card-body">
-            <h5 class="card-title">Météo actuelle</h5> <h2>Ensoleillé</h2>
-            <h6 class="card-subtitle mb-2 text-muted">Risque : surchauffe</h6>
+            <h5 class="card-title">Météo actuelle</h5> <h2>{{ meteoActuelle }}</h2>
+            <h6 class="card-subtitle mb-2 text-muted">Risque : {{risqueMeteo}}</h6>
           </div>
       </div>
     </div>

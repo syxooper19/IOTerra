@@ -36,6 +36,11 @@ export class PageTerraComponent implements OnInit, OnChanges{
   mesuresTerraActuel    : any;
   temperatureActuelle   : any;
   hygrometrieActuelle   : any;
+  luminositeActuelle    : any;
+  meteoActuelle         : any;
+  temperatureExtActuelle: any;
+  risqueMeteo           : any;
+  risqueLuminosite      : any;
   
   collectionTerraFireBase : any;
   terraFirebase           : any;
@@ -61,8 +66,31 @@ export class PageTerraComponent implements OnInit, OnChanges{
 
     this.mesuresTerraActuel  = this.serviceTerra.getDerniereMesureTerra(this.idTerra).then(
       (res : any) => {
-        this.temperatureActuelle  = res.temperature;
-        this.hygrometrieActuelle  = res.hygrometrie;
+        this.temperatureActuelle    = res.temperature;
+        this.hygrometrieActuelle    = res.hygrometrie;
+        this.luminositeActuelle     = res.luminosite;
+        this.meteoActuelle          = res.meteo;
+        this.temperatureExtActuelle = res.temperatureExterieure;
+        
+        switch (this.meteoActuelle){
+
+          case "Clouds":{
+            this.risqueMeteo        = 'aucun';
+            this.meteoActuelle      = 'Nuageux';
+          }
+
+          case "Clear":{
+            this.risqueMeteo        = 'surchauffe';
+            this.meteoActuelle      = 'Ensoleillé';
+          }
+
+        }
+
+        if (this.luminositeActuelle > 600) {
+          this.risqueLuminosite     = 'surchauffe';
+        } else {
+          this.risqueLuminosite     = 'aucun';
+        }
       }
     );    
     
