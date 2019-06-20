@@ -16,7 +16,7 @@
       <div class="card data temperature" placement="bottom" ngbTooltip="{{tooltip_temperature}}">
         <div class="card-body">
           <h5 class="card-title">Température</h5> <h2> {{ temperatureActuelle }} °</h2>
-          <h6 class="card-subtitle mb-2 text-muted">Non conforme</h6>
+          <h6 class="card-subtitle mb-2 text-muted"> {{ tempConforme }}</h6>
         </div>
       </div>
     </div>
@@ -26,7 +26,7 @@
         <div class="card data humidite" placement="bottom" ngbTooltip="{{tooltip_humidite}}">
             <div class="card-body">
               <h5 class="card-title">Humidité</h5> <h2>{{ hygrometrieActuelle}} %</h2>
-              <h6 class="card-subtitle mb-2 text-muted">Conforme</h6>
+              <h6 class="card-subtitle mb-2 text-muted">{{ hygroConforme }}</h6>
             </div>
         </div>
     </div>

@@ -6,6 +6,7 @@ import { GoogleLoginProvider, FacebookLoginProvider, LinkedInLoginProvider} from
 import { SocialLoginService } from 'src/services/social-login.service';
 import { BehaviorSubject } from 'rxjs';
 import { AngularFirestore } from 'angularfire2/firestore';
+import { Router } from '@angular/router';
 
 
 
@@ -48,10 +49,11 @@ export class AppComponent implements OnInit{
       this.terraFirebase            = this.mesTerras.Terrarium;
 
       
-     
+      this.router.navigate(['/all']);
+
   }
 
-  constructor(private mesTerras : MesTerrasService, private authService: AuthService, public http : HttpClient, private socialAuthService: SocialLoginService){
+  constructor(private router : Router, private mesTerras : MesTerrasService, private authService: AuthService, public http : HttpClient, private socialAuthService: SocialLoginService){
   
   }
 

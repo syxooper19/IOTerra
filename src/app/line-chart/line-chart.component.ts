@@ -88,10 +88,10 @@ export class LineChartComponent implements OnInit, OnChanges {
   constructionTableauxMesures(){
     let promise               = new Promise(resolve => 
       {
-        this.afs.collection('Terrarium/KreKAs5CarjyWiko68bv/Mesures', ref => ref.orderBy('date').limit(20)).valueChanges().pipe(take(1)).toPromise()
+        this.afs.collection('Terrarium/KreKAs5CarjyWiko68bv/Mesures', ref => ref.orderBy('date', 'desc').limit(20)).valueChanges().pipe(take(1)).toPromise()
         .then( (res : Array<any>) => {
           //console.log(res);
-          resolve(res);
+          resolve(res.reverse());
         });
       });
 

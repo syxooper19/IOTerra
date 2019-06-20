@@ -7,7 +7,7 @@ import { SocialLoginService } from 'src/services/social-login.service';
 import { SocialLoginComponent } from './social-login/social-login.component';
 
 const routes: Routes = [
-  //{path: '', component: SocialLoginComponent},
+  //{path: '', component: ResumeTerrasComponent},
   {path: 'all', component: ResumeTerrasComponent },
   {path: 'parametres', component: ParametresComponent, canActivate: [ SocialLoginService ] },
   {path: 'Terra/:id_terra', component: PageTerraComponent }

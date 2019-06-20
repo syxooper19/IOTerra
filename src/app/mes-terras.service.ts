@@ -32,10 +32,22 @@ export class MesTerrasService {
 
 
   //Tooltips
-  public    tooltip_humidite      : any       = "Le taux d'humidité est conforme à vos attentes. Toutefois, il risque d'augmenter à cause de la forte luminosité";
-  public    tooltip_temperature   : any       = "La température n'est pas conforme à vos attentes";
-  public    tooltip_meteo         : any       = "Attention, votre terrarium est exposé au soleil. Ceci peux causer une hausse de la température ainsi qu'une baisse de l'hygrométrie";
-  public    tooltip_luminosite    : any       = "La luminosité est forte. Pensez à surveiller la température et l'hygrométrie";
+  public    tooltip_humidite_conforme         : any       = "Le taux d'humidité est conforme à vos attentes";
+  public    tooltip_humidite_conforme_alerte  : any       = "Le taux d'humidité est conforme à vos attentes. Mais le soleil actuel peut engendrer une baisse de l'hygrométrie";
+  public    tooltip_humidite_nonConforme      : any       = "Le taux d'humidité n'est pas conforme à vos attentes. Une humidité trop élevée peut engendrer des problèmes de santé au niveau respiratoire";
+
+  
+  public    tooltip_temperature_conforme            : any       = "La température est conforme à vos attentes";
+  public    tooltip_temperature_conforme_alerte     : any       = "La température est conforme à vos attentes. Mais les rayons du soleil peuvent engendrer une hausse de la température";
+  public    tooltip_temperature_nonConforme         : any       = "La température n'est pas conforme à vos attentes";
+
+
+  public    tooltip_meteo_soleil              : any       = "Attention, votre terrarium est exposé au soleil. Ceci peux causer une hausse de la température ainsi qu'une baisse de l'hygrométrie";
+  public    tooltip_meteo_nuage               : any       = "La météo actuelle n'engendre aucun problème sur vos paramètres";
+
+
+  public    tooltip_luminosite_forte          : any       = "La luminosité est forte. Pensez à surveiller la température et l'hygrométrie";
+  public    tooltip_luminosite_faible         : any       = "La luminosité est faible.";
 
 
   TerrariumsCollection  : AngularFirestoreCollection<Terrarium>;
@@ -102,7 +114,7 @@ export class MesTerrasService {
         {
           this.afs.collection('Terrarium').valueChanges().pipe(take(1)).toPromise()
           .then( (res : Array<any>) => {
-            //console.log(res);
+            this.listeTerra = res;
             resolve(res);
           });
         });
