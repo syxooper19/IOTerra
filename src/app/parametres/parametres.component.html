@@ -1,6 +1,18 @@
 <div class="container">
 
-    <p>Mes Terrariums</p>
+    <div class="container">
+        <div class="row">
+          <div class="col-sm">
+              <p class="titre">Mes Terrariums</p>
+            </div>
+          <div class="col-sm">
+              <button *ngIf="!modification" type="button" class="btn btn-primary boutonModif" (click)="onClicModif()">Modifier</button>
+              <button *ngIf="modification"  type="button" class="btn btn-primary boutonModif" (click)="onClicModif()">Enregistrer les modifications</button>
+          </div>
+        </div>
+      </div>
+
+   
 
     <table class="table table-striped">
       <thead>
@@ -11,20 +23,38 @@
           <th scope="col">Température souhaitée</th>
           <th scope="col">Hygrométrie souhaitée</th>
           <th scope="col">Alertes souhaitée</th>
-
+          <th scope="col">Tolérance Hygrométrie (%)</th>
+          <th scope="col">Tolérance Température (%)</th>
         </tr>
       </thead>
 
-      <tbody>
-        <tr *ngFor="let terra of listeTerra; index as i">
+      <tbody *ngIf="modification">
+          <tr *ngFor="let terra of listeTerra ; index as i;">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ terra.nomTerra }}</td>
+            <td><input type="text" class="form-control" placeholder="" aria-describedby="basic-addon1" [(ngModel)]="terra.exposeAuSoleil"           (input)="valueChange(terra.nom)"></td>
+            <td><input type="text" class="form-control" placeholder="" aria-describedby="basic-addon1" [(ngModel)]="terra.temperatureSouhaitee"     (input)="valueChange(terra.nom)"></td>
+            <td><input type="text" class="form-control" placeholder="" aria-describedby="basic-addon1" [(ngModel)]="terra.HygrometrieSouhaitee"     (input)="valueChange(terra.nom)"></td>
+            <td><input type="text" class="form-control" placeholder="" aria-describedby="basic-addon1" [(ngModel)]="terra.AlertesSouhaitee"         (input)="valueChange(terra.nom)"></td>
+            <td><input type="text" class="form-control" placeholder="" aria-describedby="basic-addon1" [(ngModel)]="terra.toleranceHygro"           (input)="valueChange(terra.nom)"></td>
+            <td><input type="text" class="form-control" placeholder="" aria-describedby="basic-addon1" [(ngModel)]="terra.toleranceTemp"            (input)="valueChange(terra.nom)"></td>
+         
+          </tr>
+      </tbody>
+
+      <tbody *ngIf="!modification">
+        <tr *ngFor="let terra of listeTerra ; index as i">
           <th scope="row">{{ i + 1 }}</th>
-          <td>{{ terra.nom }}</td>
-          <td>{{ terra.soleil }}</td>
-          <td>{{ terra.temperature_souhaitee }}</td>
-          <td>{{ terra.hygrometrie_souhaitee }}</td>
-          <td>{{ terra.alertes }}</td>
+          <td> {{ terra.nomTerra }}</td>
+          <td> {{ terra.exposeAuSoleil }}</td>
+          <td> {{ terra.temperatureSouhaitee }}</td>
+          <td> {{ terra.HygrometrieSouhaitee }}</td>
+          <td> {{ terra.AlertesSouhaitee }}</td>
+          <td> {{ terra.toleranceHygro }}</td>
+          <td> {{ terra.toleranceTemp }}</td>
         </tr>
       </tbody>
     </table>
 
+   
   </div>

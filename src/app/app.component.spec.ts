@@ -9,6 +9,7 @@ import { BehaviorSubject } from 'rxjs';
 import { SocialLoginModule, AuthServiceConfig } from 'angularx-social-login';
 import { provideConfig } from './app.module';
 
+
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -24,11 +25,13 @@ describe('AppComponent', () => {
         HttpClient,
         HttpHandler,
         
+        
 
       ],
       schemas: [NO_ERRORS_SCHEMA]
 
     }).compileComponents();
+    
   }));
 
   const FirestoreStub = {
@@ -52,10 +55,28 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('IOTerra');
   });
 
-  it('should render title in a h1 tag', () => {
+  it('sidebar fermée', () => {
     const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('IOTerra');
+    const app = fixture.debugElement.componentInstance;
+    expect(app._opened).toBeFalsy();
+  });
+
+  // it(' ngOnInit', () => {
+  //   const fixture = TestBed.createComponent(AppComponent);
+  //   const app = fixture.debugElement.componentInstance;
+    
+  // });
+
+
+  it('utilisateur connecté', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app.user).toBeUndefined();
+  });
+
+  it('test data firebase', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app.collectionTerraFireBase).toBeDefined;
   });
 });

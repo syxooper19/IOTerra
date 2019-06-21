@@ -2,7 +2,9 @@
 
   <!--nom du terra-->
   <div class="row">
-      <p>{{terraActuel}}</p>
+    <!-- <div *ngFor="let t of terraActuel | async">
+        <p>{{ t | json }}</p>
+      </div>   -->
   </div>
 
     
@@ -13,8 +15,8 @@
     <div class="col-sm">
       <div class="card data temperature" placement="bottom" ngbTooltip="{{tooltip_temperature}}">
         <div class="card-body">
-          <h5 class="card-title">Température</h5> <h2>28°</h2>
-          <h6 class="card-subtitle mb-2 text-muted">Non conforme</h6>
+          <h5 class="card-title">Température</h5> <h2> {{ temperatureActuelle }} °</h2>
+          <h6 class="card-subtitle mb-2 text-muted"> {{ tempConforme }}</h6>
         </div>
       </div>
     </div>
@@ -23,8 +25,8 @@
     <div class="col-sm">
         <div class="card data humidite" placement="bottom" ngbTooltip="{{tooltip_humidite}}">
             <div class="card-body">
-              <h5 class="card-title">Humidité</h5> <h2>50 %</h2>
-              <h6 class="card-subtitle mb-2 text-muted">Conforme</h6>
+              <h5 class="card-title">Humidité</h5> <h2>{{ hygrometrieActuelle}} %</h2>
+              <h6 class="card-subtitle mb-2 text-muted">{{ hygroConforme }}</h6>
             </div>
         </div>
     </div>
@@ -33,8 +35,8 @@
     <div class="col-sm">
         <div class="card data luminosite" placement="bottom" ngbTooltip="{{tooltip_luminosite}}">
             <div class="card-body">
-              <h5 class="card-title">Luminosité</h5> <h2>Très Fort</h2>
-              <h6 class="card-subtitle mb-2 text-muted">Risque : Surchauffe</h6>
+              <h5 class="card-title">Luminosité</h5> <h2>{{ luminositeActuelle }} Lux</h2>
+              <h6 class="card-subtitle mb-2 text-muted">Risque : {{ risqueLuminosite }}</h6>
             </div>
         </div>
     </div>
@@ -44,8 +46,8 @@
     <div class="col-sm">
       <div class="card data meteo" placement="bottom" ngbTooltip="{{tooltip_meteo}}">
           <div class="card-body">
-            <h5 class="card-title">Météo actuelle</h5> <h2>Ensoleillé</h2>
-            <h6 class="card-subtitle mb-2 text-muted">Risque : surchauffe</h6>
+            <h5 class="card-title">Météo actuelle</h5> <h2>{{ meteoActuelle }}</h2>
+            <h6 class="card-subtitle mb-2 text-muted">Risque : {{risqueMeteo}}</h6>
           </div>
       </div>
     </div>

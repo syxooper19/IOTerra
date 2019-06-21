@@ -6,6 +6,7 @@ import { GoogleLoginProvider, FacebookLoginProvider, LinkedInLoginProvider} from
 import { SocialLoginService } from 'src/services/social-login.service';
 import { BehaviorSubject } from 'rxjs';
 import { AngularFirestore } from 'angularfire2/firestore';
+import { Router } from '@angular/router';
 
 
 
@@ -32,23 +33,27 @@ export class AppComponent implements OnInit{
     this.user = this.socialAuthService.user;
     this.loggedIn = (this.user != null);
 
-    this.authService.authState.subscribe(
-      (user) => {
-        this.user     = user;
-        this.loggedIn = (user != null);
-        console.log(this.user);
-        console.log(this.loggedIn);
-      });
+    if (this.authService.authState != undefined){
 
+      this.authService.authState.subscribe(
+        (user) => {
+          this.user     = user;
+          this.loggedIn = (user != null);
+          console.log(this.user);
+          console.log(this.loggedIn);
+        });
+        
+    }
 
       this.collectionTerraFireBase  = this.mesTerras.TerrariumsCollection;
       this.terraFirebase            = this.mesTerras.Terrarium;
 
       
-     
+      this.router.navigate(['/all']);
+
   }
 
-  constructor(private mesTerras : MesTerrasService, private authService: AuthService, public http : HttpClient, private socialAuthService: SocialLoginService){
+  constructor(private router : Router, private mesTerras : MesTerrasService, private authService: AuthService, public http : HttpClient, private socialAuthService: SocialLoginService){
   
   }
 
@@ -58,4 +63,10 @@ export class AppComponent implements OnInit{
   }
 
 
+  //ouvrir ou fermer la Sidebar
+  public _opened: boolean = false;
+
+  public _toggleSidebar() {
+    this._opened = !this._opened;
+  }
 }

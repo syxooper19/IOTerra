@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/IOTerra",
+    "public": "dist/IOTerra/",
     "ignore": [
       "firebase.json",
       "**/.*",

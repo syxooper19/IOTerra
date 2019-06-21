@@ -1,25 +1,28 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed, async } from '@angular/core/testing';
 
 import { SocialLoginService } from './social-login.service';
 import { AngularFirestore } from 'angularfire2/firestore';
-import { AuthService } from 'angularx-social-login';
+import { AuthService, SocialUser } from 'angularx-social-login';
 import { provideConfig } from 'src/app/app.module';
 import { HttpClient } from 'selenium-webdriver/http';
 import { HttpHandler } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+
+import { HttpClientTestingModule } from '@angular/common/http/testing'
+
 
 describe('SocialLoginService', () => {
   beforeEach(() => TestBed.configureTestingModule({
     providers: [
       { provide: AngularFirestore, useValue: FirestoreStub },
       { provide: AuthService, useFactory: provideConfig },
-      HttpClient,
       HttpHandler,
+      HttpClientTestingModule
       
 
     ],
   }));
-
 
   const FirestoreStub = {
     collection: (name: string) => ({
@@ -35,4 +38,20 @@ describe('SocialLoginService', () => {
     const service: SocialLoginService = TestBed.get(SocialLoginService);
     expect(service).toBeTruthy();
   });
+
+
+  it('fonction connexion', () => {
+    const service: SocialLoginService = TestBed.get(SocialLoginService);
+    const user = service.connexionUser();
+    expect(user).toBe(undefined);
+  });
+
+  
+  it('appel FB', () => {
+    const service: SocialLoginService = TestBed.get(SocialLoginService);
+    expect(service.signInWithFB).toBeDefined;
+  });
+
+
+  
 });

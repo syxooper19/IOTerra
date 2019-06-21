@@ -1,6 +1,6 @@
 <div class="container">
 
-  <p class="titre">Mes Terrariums</p>
+  <p class="titre">Surveillance Terrariums</p>
 
   <table class="table table-striped">
     <thead>
@@ -10,16 +10,21 @@
         <th scope="col">Température</th>
         <th scope="col">Hygrométrie</th>
         <th scope="col">Luminosité</th>
+        <th scope="col">Météo</th>
+        <th scope="col">Temperature Extérieur</th>
+
       </tr>
     </thead>
 
     <tbody>
-      <tr *ngFor="let terra of listeTerra; index as i">
+      <tr *ngFor="let terra of listeMesures; index as i">
         <th scope="row">{{ i + 1 }}</th>
-        <td>{{ terra.nom }}</td>
-        <td>{{ terra.temperature }}</td>
-        <td>{{ terra.hygrometrie }}</td>
-        <td>{{ terra.luminosite }}</td>
+        <td>{{ terra.nomTerra }}</td>
+        <td>{{ terra.temperature }} °C</td>
+        <td>{{ terra.hygrometrie }} %</td>
+        <td>{{ terra.luminosite }} Lux</td>
+        <td>{{ terra.meteo }}</td>
+        <td>{{ terra.temperatureExterieur }} °C</td>
       </tr>
     </tbody>
   </table>

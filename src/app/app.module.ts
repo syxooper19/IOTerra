@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { SidebarModule } from 'ng-sidebar';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
+import { Chart } from 'chart.js';
+
 import { LineChartComponent } from './line-chart/line-chart.component';
 import { ParametresComponent } from './parametres/parametres.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -22,6 +24,9 @@ import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 export const firebaseConfig = environment.firebaseConfig;
 import { AngularFirestoreModule, AngularFirestore } from 'angularfire2/firestore';
+import { ToggleButtonComponent } from './toggle-button.component';
+
+import { FormsModule } from '@angular/forms';
 
 
 let config = new AuthServiceConfig([
@@ -53,7 +58,8 @@ export function provideConfig() {
     ParametresComponent,
     ResumeTerrasComponent,
     PageTerraComponent,
-    SocialLoginComponent
+    SocialLoginComponent,
+    ToggleButtonComponent
   ],
   imports: [
     BrowserModule,
@@ -61,12 +67,15 @@ export function provideConfig() {
     GoogleChartsModule,
     SidebarModule.forRoot(),
     ChartsModule,
+    //Chart,
     NgbModule,
     SocialLoginModule,
     HttpClientModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
-    SocialLoginModule
+    SocialLoginModule,
+    FormsModule
+
   ],
   providers: [
     { provide: AuthServiceConfig, useFactory: provideConfig },
